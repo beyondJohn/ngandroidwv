@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Routes, ActivatedRoute, Router  } from '@angular/router';
 
 @Component({
   selector: 'body',

@@ -10,7 +10,7 @@ const postcssUrl = require('postcss-url');
 const cssnano = require('cssnano');
 const customProperties = require('postcss-custom-properties');
 
-const { NoEmitOnErrorsPlugin, SourceMapDevToolPlugin, NamedModulesPlugin } = require('webpack');
+const { NoEmitOnErrorsPlugin, NamedModulesPlugin } = require('webpack');
 const { NamedLazyChunksWebpackPlugin, BaseHrefWebpackPlugin } = require('@angular/cli/plugins/webpack');
 const { CommonsChunkPlugin } = require('webpack').optimize;
 const { AngularCompilerPlugin } = require('@ngtools/webpack');
@@ -464,12 +464,6 @@ module.exports = {
         "main"
       ]
     }),
-    new SourceMapDevToolPlugin({
-      "filename": "[file].map[query]",
-      "moduleFilenameTemplate": "[resource-path]",
-      "fallbackModuleFilenameTemplate": "[resource-path]?[hash]",
-      "sourceRoot": "webpack:///"
-    }),
     new CommonsChunkPlugin({
       "name": [
         "main"
@@ -484,7 +478,7 @@ module.exports = {
       "hostReplacementPaths": {
         "environments/environment.ts": "environments/environment.ts"
       },
-      "sourceMap": true,
+      "sourceMap": false,
       "tsConfigPath": "src/tsconfig.app.json",
       "skipCodeGeneration": true,
       "compilerOptions": {}
